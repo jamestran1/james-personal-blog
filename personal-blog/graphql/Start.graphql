@@ -1,0 +1,29 @@
+query PersonalBlog {
+    Content(locale: [en]) {
+        items {
+            ...landingPages
+            __typename
+        }
+    }
+}
+
+fragment landingPages on LandingPage {
+    Title
+    SubTitle
+    MainImage {
+        Id
+        WorkId
+        GuidValue
+        ProviderName
+        Url
+    }
+    MainBody
+    FooterText
+    SeoSettings {
+        MetaTitle
+        MetaDescription
+        MetaKeywords
+    }
+    Created
+    Changed
+}
