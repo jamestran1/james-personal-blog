@@ -36,4 +36,4 @@ yarn-error.log*
 next-env.d.ts
 
 # generated graphql
-/generated
+# /generated
