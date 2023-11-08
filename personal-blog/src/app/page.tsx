@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { getPersonalBlog } from '../../handlers/getPersonalBlogHanlder';
-import { PersonalBlogProps } from '../../models/Props';
-import LandingPage from '@/pages/LandingPage';
+import LandingPage from './LandingPage';
 
 // export const getData = async () => {
 //   const { error, content } = await getPersonalBlog();

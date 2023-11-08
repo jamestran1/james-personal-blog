@@ -4,6 +4,8 @@ documents:
   - "./graphql/**/*.graphql"
 generates:
   ./generated/graphql.ts:
+    config:
+      - useTypeImports: true
     plugins:
       - typescript
       - typescript-operations
