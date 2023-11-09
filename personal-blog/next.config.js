@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-reactStrictMode: true,
+  reactStrictMode: true,
   webpack: (config, options) => {
     config.module.rules.push({
       test: /\.(graphql|gql)/,
@@ -9,6 +9,15 @@ reactStrictMode: true,
     });
 
     return config;
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'app-ocxcquangtr3n3frprod.cms.optimizely.com',
+        pathname: '/contentassets/**'
+      }
+    ]
   }
 }
 

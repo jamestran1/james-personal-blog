@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { getPersonalBlog } from '../../handlers/getPersonalBlogHanlder';
 import LandingPage from './LandingPage';
 
@@ -13,7 +12,7 @@ export default async function Home() {
   const { error, content } = await getPersonalBlog();
   if (error) return <p>{JSON.stringify(error)}</p>
   return (
-    <div>
+    <div className="container">
       {
         content.Content?.items?.map((item, index) => {
           if (item?.__typename === "LandingPage") {
