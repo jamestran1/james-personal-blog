@@ -15,7 +15,12 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'app-ocxcquangtr3n3frprod.cms.optimizely.com',
-      }
+        pathname: '/contentassets/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'images2.cmp.optimizely.com',
+      },
     ]
   }
 }
