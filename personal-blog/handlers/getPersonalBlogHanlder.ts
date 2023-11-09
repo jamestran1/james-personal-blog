@@ -15,8 +15,10 @@ export async function getPersonalBlog() {
         method: "POST",
         body: JSON.stringify({
             query: parsedGQL.loc?.source.body,
-        })
-
+        }),
+        next: {
+            revalidate: 60,
+        }
     })
     
     const json = await res.json()
