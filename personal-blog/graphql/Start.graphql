@@ -10,13 +10,7 @@ query PersonalBlog {
 fragment landingPages on LandingPage {
     Title
     SubTitle
-    MainImage {
-        Id
-        WorkId
-        GuidValue
-        ProviderName
-        Url
-    }
+    MainImage
     MainBody
     FooterText
     SeoSettings {
