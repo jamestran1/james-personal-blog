@@ -1,5 +1,4 @@
 import { GraphQLClient } from 'graphql-request';
-// @ts-ignore
 import { GraphQLClientRequestHeaders } from 'graphql-request/build/cjs/types';
 import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
@@ -438,56 +437,6 @@ export type ContentLanguageModelOrderByInput = {
   Name?: InputMaybe<OrderBy>;
 };
 
-export type ContentLanguageModelSearch = {
-  __typename?: 'ContentLanguageModelSearch';
-  DisplayName?: Maybe<Scalars['String']['output']>;
-  Link?: Maybe<Scalars['String']['output']>;
-  Name?: Maybe<Scalars['String']['output']>;
-};
-
-export type ContentLanguageModelSearchFacet = {
-  __typename?: 'ContentLanguageModelSearchFacet';
-  DisplayName?: Maybe<Array<Maybe<StringFacet>>>;
-  Link?: Maybe<Array<Maybe<StringFacet>>>;
-  Name?: Maybe<Array<Maybe<StringFacet>>>;
-};
-
-
-export type ContentLanguageModelSearchFacetDisplayNameArgs = {
-  filters?: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-
-export type ContentLanguageModelSearchFacetLinkArgs = {
-  filters?: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-
-export type ContentLanguageModelSearchFacetNameArgs = {
-  filters?: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-export type ContentLanguageModelSearchOrderByInput = {
-  DisplayName?: InputMaybe<OrderBy>;
-  Link?: InputMaybe<OrderBy>;
-  Name?: InputMaybe<OrderBy>;
-};
-
-export type ContentLanguageModelSearchWhereInput = {
-  DisplayName?: InputMaybe<SearchableStringFilterInput>;
-  Link?: InputMaybe<SearchableStringFilterInput>;
-  Name?: InputMaybe<SearchableStringFilterInput>;
-};
-
 export type ContentLanguageModelWhereInput = {
   DisplayName?: InputMaybe<StringFilterInput>;
   Link?: InputMaybe<StringFilterInput>;
@@ -582,79 +531,6 @@ export type ContentModelReferenceOrderByInput = {
   ProviderName?: InputMaybe<OrderBy>;
   Url?: InputMaybe<OrderBy>;
   WorkId?: InputMaybe<OrderBy>;
-};
-
-export type ContentModelReferenceSearch = {
-  __typename?: 'ContentModelReferenceSearch';
-  Expanded?: Maybe<IContent>;
-  GuidValue?: Maybe<Scalars['String']['output']>;
-  Id?: Maybe<Scalars['Int']['output']>;
-  Language?: Maybe<ContentLanguageModelSearch>;
-  ProviderName?: Maybe<Scalars['String']['output']>;
-  Url?: Maybe<Scalars['String']['output']>;
-  WorkId?: Maybe<Scalars['Int']['output']>;
-};
-
-export type ContentModelReferenceSearchFacet = {
-  __typename?: 'ContentModelReferenceSearchFacet';
-  GuidValue?: Maybe<Array<Maybe<StringFacet>>>;
-  Id?: Maybe<Array<Maybe<NumberFacet>>>;
-  Language?: Maybe<ContentLanguageModelSearchFacet>;
-  ProviderName?: Maybe<Array<Maybe<StringFacet>>>;
-  Url?: Maybe<Array<Maybe<StringFacet>>>;
-  WorkId?: Maybe<Array<Maybe<NumberFacet>>>;
-};
-
-
-export type ContentModelReferenceSearchFacetGuidValueArgs = {
-  filters?: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-
-export type ContentModelReferenceSearchFacetIdArgs = {
-  ranges?: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
-};
-
-
-export type ContentModelReferenceSearchFacetProviderNameArgs = {
-  filters?: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-
-export type ContentModelReferenceSearchFacetUrlArgs = {
-  filters?: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-
-export type ContentModelReferenceSearchFacetWorkIdArgs = {
-  ranges?: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
-};
-
-export type ContentModelReferenceSearchOrderByInput = {
-  GuidValue?: InputMaybe<OrderBy>;
-  Id?: InputMaybe<OrderBy>;
-  Language?: InputMaybe<ContentLanguageModelSearchOrderByInput>;
-  ProviderName?: InputMaybe<OrderBy>;
-  Url?: InputMaybe<OrderBy>;
-  WorkId?: InputMaybe<OrderBy>;
-};
-
-export type ContentModelReferenceSearchWhereInput = {
-  GuidValue?: InputMaybe<StringFilterInput>;
-  Id?: InputMaybe<IntFilterInput>;
-  Language?: InputMaybe<ContentLanguageModelSearchWhereInput>;
-  ProviderName?: InputMaybe<SearchableStringFilterInput>;
-  Url?: InputMaybe<SearchableStringFilterInput>;
-  WorkId?: InputMaybe<IntFilterInput>;
 };
 
 export type ContentModelReferenceWhereInput = {
@@ -1915,7 +1791,7 @@ export type LandingPage = IContent & {
   /** Body */
   MainBody?: Maybe<Scalars['String']['output']>;
   /** Image */
-  MainImage?: Maybe<ContentModelReferenceSearch>;
+  MainImage?: Maybe<Scalars['String']['output']>;
   MasterLanguage?: Maybe<ContentLanguageModel>;
   Name?: Maybe<Scalars['String']['output']>;
   ParentLink?: Maybe<ContentModelReference>;
@@ -2107,7 +1983,7 @@ export type LandingPageFacet = {
   IsCommonDraft?: Maybe<Array<Maybe<StringFacet>>>;
   Language?: Maybe<ContentLanguageModelFacet>;
   MainBody?: Maybe<Array<Maybe<StringFacet>>>;
-  MainImage?: Maybe<ContentModelReferenceSearchFacet>;
+  MainImage?: Maybe<Array<Maybe<StringFacet>>>;
   MasterLanguage?: Maybe<ContentLanguageModelFacet>;
   Name?: Maybe<Array<Maybe<StringFacet>>>;
   ParentLink?: Maybe<ContentModelReferenceFacet>;
@@ -2170,6 +2046,14 @@ export type LandingPageFacetIsCommonDraftArgs = {
 
 
 export type LandingPageFacetMainBodyArgs = {
+  filters?: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LandingPageFacetMainImageArgs = {
   filters?: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
   orderBy?: InputMaybe<OrderBy>;
@@ -2270,7 +2154,7 @@ export type LandingPageOrderByInput = {
   IsCommonDraft?: InputMaybe<OrderBy>;
   Language?: InputMaybe<ContentLanguageModelOrderByInput>;
   MainBody?: InputMaybe<OrderBy>;
-  MainImage?: InputMaybe<ContentModelReferenceSearchOrderByInput>;
+  MainImage?: InputMaybe<OrderBy>;
   MasterLanguage?: InputMaybe<ContentLanguageModelOrderByInput>;
   Name?: InputMaybe<OrderBy>;
   ParentLink?: InputMaybe<ContentModelReferenceOrderByInput>;
@@ -2314,7 +2198,7 @@ export type LandingPageWhereInput = {
   IsCommonDraft?: InputMaybe<BoolFilterInput>;
   Language?: InputMaybe<ContentLanguageModelWhereInput>;
   MainBody?: InputMaybe<SearchableStringFilterInput>;
-  MainImage?: InputMaybe<ContentModelReferenceSearchWhereInput>;
+  MainImage?: InputMaybe<SearchableStringFilterInput>;
   MasterLanguage?: InputMaybe<ContentLanguageModelWhereInput>;
   Name?: InputMaybe<SearchableStringFilterInput>;
   ParentLink?: InputMaybe<ContentModelReferenceWhereInput>;
@@ -3206,21 +3090,15 @@ export enum SynonymSlot {
 export type PersonalBlogQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type PersonalBlogQuery = { __typename?: 'Query', Content?: { __typename?: 'ContentOutput', items?: Array<{ __typename: 'Content' } | { __typename: 'DAMAsset' } | { __typename: 'DAMImageAsset' } | { __typename: 'DAMVideoAsset' } | { __typename: 'LandingPage', Title?: string | null, SubTitle?: string | null, MainBody?: string | null, FooterText?: string | null, Created?: any | null, Changed?: any | null, MainImage?: { __typename?: 'ContentModelReferenceSearch', Id?: number | null, WorkId?: number | null, GuidValue?: string | null, ProviderName?: string | null, Url?: string | null } | null, SeoSettings?: { __typename?: 'LandingPageBlockData', MetaTitle?: string | null, MetaDescription?: string | null, MetaKeywords?: string | null } | null } | { __typename: 'SeoSettings' } | null> | null } | null };
+export type PersonalBlogQuery = { __typename?: 'Query', Content?: { __typename?: 'ContentOutput', items?: Array<{ __typename: 'Content' } | { __typename: 'DAMAsset' } | { __typename: 'DAMImageAsset' } | { __typename: 'DAMVideoAsset' } | { __typename: 'LandingPage', Title?: string | null, SubTitle?: string | null, MainImage?: string | null, MainBody?: string | null, FooterText?: string | null, Created?: any | null, Changed?: any | null, SeoSettings?: { __typename?: 'LandingPageBlockData', MetaTitle?: string | null, MetaDescription?: string | null, MetaKeywords?: string | null } | null } | { __typename: 'SeoSettings' } | null> | null } | null };
 
-export type LandingPagesFragment = { __typename?: 'LandingPage', Title?: string | null, SubTitle?: string | null, MainBody?: string | null, FooterText?: string | null, Created?: any | null, Changed?: any | null, MainImage?: { __typename?: 'ContentModelReferenceSearch', Id?: number | null, WorkId?: number | null, GuidValue?: string | null, ProviderName?: string | null, Url?: string | null } | null, SeoSettings?: { __typename?: 'LandingPageBlockData', MetaTitle?: string | null, MetaDescription?: string | null, MetaKeywords?: string | null } | null };
+export type LandingPagesFragment = { __typename?: 'LandingPage', Title?: string | null, SubTitle?: string | null, MainImage?: string | null, MainBody?: string | null, FooterText?: string | null, Created?: any | null, Changed?: any | null, SeoSettings?: { __typename?: 'LandingPageBlockData', MetaTitle?: string | null, MetaDescription?: string | null, MetaKeywords?: string | null } | null };
 
 export const LandingPagesFragmentDoc = gql`
     fragment landingPages on LandingPage {
   Title
   SubTitle
-  MainImage {
-    Id
-    WorkId
-    GuidValue
-    ProviderName
-    Url
-  }
+  MainImage
   MainBody
   FooterText
   SeoSettings {
