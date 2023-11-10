@@ -17,7 +17,6 @@ export default function RootLayout({
     redirect('/?' + param.toString())
   }
   const opeSiteUrl = process.env.NEXT_PUBLIC_SITE_URL + "/Util/javascript/communicationinjector.js"
-  console.log('isEditMode', isEditMode)
   return (
     <html lang="en">
       {isEditMode && (

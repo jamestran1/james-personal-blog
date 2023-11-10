@@ -1,16 +1,10 @@
+import { notFound } from 'next/navigation';
 import { getPersonalBlog } from '../../handlers/getPersonalBlogHanlder';
 import LandingPage from './LandingPage';
 
-// export const getData = async () => {
-//   const { error, content } = await getPersonalBlog();
-//   return {
-//       props: { error, content }
-//   }
-// }
-
 export default async function Home() {
   const { error, content } = await getPersonalBlog();
-  if (error) return <p>{JSON.stringify(error)}</p>
+  if (error) notFound()
   return (
     <div className="container">
       {
