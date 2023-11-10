@@ -17,7 +17,7 @@ export async function getPersonalBlog() {
             query: parsedGQL.loc?.source.body,
         }),
         next: {
-            revalidate: 60,
+            revalidate: 3600,
         }
     })
     
