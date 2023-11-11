@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getPersonalBlog } from '../../handlers/getPersonalBlogHanlder';
+import { getPersonalBlog } from '../../handlers/handlers';
 import LandingPage from './LandingPage';
 
 export default async function Home() {
