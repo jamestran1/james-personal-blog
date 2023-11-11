@@ -12,12 +12,22 @@ fragment landingPages on LandingPage {
     SubTitle
     MainImage
     MainBody
-    FooterText
+    FeaturePosts {
+        ContentLink {
+            Expanded {
+                ... on BlogPost {
+                    Title
+                    Tags
+                    Excerpt
+                    FeatureImage
+                    Created
+                }
+            }
+        }
+    }
     SeoSettings {
         MetaTitle
         MetaDescription
         MetaKeywords
     }
-    Created
-    Changed
 }

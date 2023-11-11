@@ -1,0 +1,28 @@
+query BlogPosts {
+    BlogPost(limit: 100) {
+        items {
+            Title
+            SubTitle
+            Tags
+            FeatureImage
+            Excerpt
+            Content
+            SEOSettings {
+                MetaTitle
+                MetaDescription
+                MetaKeywords
+            }
+            Created
+        }
+        facets {
+            Created {
+                name
+                count
+            }
+            Tags {
+                name
+                count
+            }
+        }
+    }
+}

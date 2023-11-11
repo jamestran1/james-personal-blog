@@ -1,6 +1,8 @@
 import Image from 'next/image'
-import { LandingPage } from "../../generated/graphql"
+import { ContentAreaItemModelSearch, LandingPage } from "../../generated/graphql"
 import parse from 'html-react-parser'
+import FeaturePost from './FeaturePost'
+import { FeaturePostProps } from '../../models/Props'
 
 type LandingPageProps = {
     content: LandingPage
@@ -15,9 +17,8 @@ function LandingPage({content}: LandingPageProps) {
             </div>
             <Image data-epi-edit="MainImage" src={content.MainImage || ''} width={2688} height={1536} alt='zen coder'/>
             <span data-epi-edit="MainBody">{parse(content.MainBody || '')}</span>
-            <div>
-                <span data-epi-edit="FooterText" className='text-right'>{content.FooterText}</span>
-            </div>
+
+            <FeaturePost data-epi-edit="FeaturePosts" featurePosts={content.FeaturePosts as ContentAreaItemModelSearch[]} />
         </div>
     )
 }

@@ -19,8 +19,12 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'images2.cmp.optimizely.com',
+        hostname: '*.cmp.optimizely.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com'
+      }
     ]
   }
 }

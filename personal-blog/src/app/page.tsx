@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getPersonalBlog } from '../../handlers/getPersonalBlogHanlder';
+import { getPersonalBlog } from '../../handlers/handlers';
 import LandingPage from './LandingPage';
 
 export default async function Home() {
@@ -10,7 +10,7 @@ export default async function Home() {
       {
         content.Content?.items?.map((item, index) => {
           if (item?.__typename === "LandingPage") {
-            return <LandingPage key={index} content={item} />
+            return <LandingPage key={index} content={item as any} />
           }
         })
       }
