@@ -10,7 +10,7 @@ export default async function Home() {
       {
         content.Content?.items?.map((item, index) => {
           if (item?.__typename === "LandingPage") {
-            return <LandingPage key={index} content={item} />
+            return <LandingPage key={index} content={item as any} />
           }
         })
       }
