@@ -4535,14 +4535,21 @@ export enum SynonymSlot {
 export type BlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type BlogPostsQuery = { __typename?: 'Query', BlogPost?: { __typename?: 'BlogPostOutput', items?: Array<{ __typename?: 'BlogPost', Title?: string | null, SubTitle?: string | null, Tags?: Array<string | null> | null, FeatureImage?: string | null, Excerpt?: string | null, Content?: string | null, Created?: any | null, SEOSettings?: { __typename?: 'BlogPostBlockData', MetaTitle?: string | null, MetaDescription?: string | null, MetaKeywords?: string | null } | null } | null> | null, facets?: { __typename?: 'BlogPostFacet', Created?: Array<{ __typename?: 'DateFacet', name?: string | null, count?: number | null } | null> | null, Tags?: Array<{ __typename?: 'StringFacet', name?: string | null, count?: number | null } | null> | null } | null } | null };
+export type BlogPostsQuery = { __typename?: 'Query', BlogPost?: { __typename?: 'BlogPostOutput', items?: Array<{ __typename?: 'BlogPost', Title?: string | null, SubTitle?: string | null, Tags?: Array<string | null> | null, FeatureImage?: string | null, Excerpt?: string | null, Content?: string | null, Created?: any | null, ContentLink?: { __typename?: 'ContentModelReference', Id?: number | null, GuidValue?: string | null, Url?: string | null } | null, SEOSettings?: { __typename?: 'BlogPostBlockData', MetaTitle?: string | null, MetaDescription?: string | null, MetaKeywords?: string | null } | null } | null> | null, facets?: { __typename?: 'BlogPostFacet', Created?: Array<{ __typename?: 'DateFacet', name?: string | null, count?: number | null } | null> | null, Tags?: Array<{ __typename?: 'StringFacet', name?: string | null, count?: number | null } | null> | null } | null } | null };
+
+export type BlogPostsBySlugQueryVariables = Exact<{
+  slug: Scalars['String']['input'];
+}>;
+
+
+export type BlogPostsBySlugQuery = { __typename?: 'Query', BlogPost?: { __typename?: 'BlogPostOutput', items?: Array<{ __typename?: 'BlogPost', Title?: string | null, SubTitle?: string | null, Tags?: Array<string | null> | null, FeatureImage?: string | null, Excerpt?: string | null, Content?: string | null, Created?: any | null, ContentLink?: { __typename?: 'ContentModelReference', Id?: number | null, GuidValue?: string | null, Url?: string | null } | null, SEOSettings?: { __typename?: 'BlogPostBlockData', MetaTitle?: string | null, MetaDescription?: string | null, MetaKeywords?: string | null } | null } | null> | null, facets?: { __typename?: 'BlogPostFacet', Created?: Array<{ __typename?: 'DateFacet', name?: string | null, count?: number | null } | null> | null, Tags?: Array<{ __typename?: 'StringFacet', name?: string | null, count?: number | null } | null> | null } | null } | null };
 
 export type PersonalBlogQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type PersonalBlogQuery = { __typename?: 'Query', Content?: { __typename?: 'ContentOutput', items?: Array<{ __typename: 'BlogPost' } | { __typename: 'Comments' } | { __typename: 'Content' } | { __typename: 'DAMAsset' } | { __typename: 'DAMImageAsset' } | { __typename: 'DAMVideoAsset' } | { __typename: 'LandingPage', Title?: string | null, SubTitle?: string | null, MainImage?: string | null, MainBody?: string | null, FeaturePosts?: Array<{ __typename?: 'ContentAreaItemModelSearch', ContentLink?: { __typename?: 'ContentModelReferenceSearch', Expanded?: { __typename?: 'BlogPost', Title?: string | null, Tags?: Array<string | null> | null, Excerpt?: string | null, FeatureImage?: string | null, Created?: any | null } | { __typename?: 'Comments' } | { __typename?: 'Content' } | { __typename?: 'DAMAsset' } | { __typename?: 'DAMImageAsset' } | { __typename?: 'DAMVideoAsset' } | { __typename?: 'LandingPage' } | { __typename?: 'SeoSettings' } | { __typename?: 'SocialMedia' } | null } | null } | null> | null, SeoSettings?: { __typename?: 'LandingPageBlockData', MetaTitle?: string | null, MetaDescription?: string | null, MetaKeywords?: string | null } | null } | { __typename: 'SeoSettings' } | { __typename: 'SocialMedia' } | null> | null } | null };
+export type PersonalBlogQuery = { __typename?: 'Query', Content?: { __typename?: 'ContentOutput', items?: Array<{ __typename: 'BlogPost' } | { __typename: 'Comments' } | { __typename: 'Content' } | { __typename: 'DAMAsset' } | { __typename: 'DAMImageAsset' } | { __typename: 'DAMVideoAsset' } | { __typename: 'LandingPage', Title?: string | null, SubTitle?: string | null, MainImage?: string | null, MainBody?: string | null, FeaturePosts?: Array<{ __typename?: 'ContentAreaItemModelSearch', ContentLink?: { __typename?: 'ContentModelReferenceSearch', Expanded?: { __typename?: 'BlogPost', Title?: string | null, Tags?: Array<string | null> | null, Excerpt?: string | null, FeatureImage?: string | null, Created?: any | null, ContentLink?: { __typename?: 'ContentModelReference', Id?: number | null, GuidValue?: string | null, Url?: string | null } | null } | { __typename?: 'Comments' } | { __typename?: 'Content' } | { __typename?: 'DAMAsset' } | { __typename?: 'DAMImageAsset' } | { __typename?: 'DAMVideoAsset' } | { __typename?: 'LandingPage' } | { __typename?: 'SeoSettings' } | { __typename?: 'SocialMedia' } | null } | null } | null> | null, SeoSettings?: { __typename?: 'LandingPageBlockData', MetaTitle?: string | null, MetaDescription?: string | null, MetaKeywords?: string | null } | null } | { __typename: 'SeoSettings' } | { __typename: 'SocialMedia' } | null> | null } | null };
 
-export type LandingPagesFragment = { __typename?: 'LandingPage', Title?: string | null, SubTitle?: string | null, MainImage?: string | null, MainBody?: string | null, FeaturePosts?: Array<{ __typename?: 'ContentAreaItemModelSearch', ContentLink?: { __typename?: 'ContentModelReferenceSearch', Expanded?: { __typename?: 'BlogPost', Title?: string | null, Tags?: Array<string | null> | null, Excerpt?: string | null, FeatureImage?: string | null, Created?: any | null } | { __typename?: 'Comments' } | { __typename?: 'Content' } | { __typename?: 'DAMAsset' } | { __typename?: 'DAMImageAsset' } | { __typename?: 'DAMVideoAsset' } | { __typename?: 'LandingPage' } | { __typename?: 'SeoSettings' } | { __typename?: 'SocialMedia' } | null } | null } | null> | null, SeoSettings?: { __typename?: 'LandingPageBlockData', MetaTitle?: string | null, MetaDescription?: string | null, MetaKeywords?: string | null } | null };
+export type LandingPagesFragment = { __typename?: 'LandingPage', Title?: string | null, SubTitle?: string | null, MainImage?: string | null, MainBody?: string | null, FeaturePosts?: Array<{ __typename?: 'ContentAreaItemModelSearch', ContentLink?: { __typename?: 'ContentModelReferenceSearch', Expanded?: { __typename?: 'BlogPost', Title?: string | null, Tags?: Array<string | null> | null, Excerpt?: string | null, FeatureImage?: string | null, Created?: any | null, ContentLink?: { __typename?: 'ContentModelReference', Id?: number | null, GuidValue?: string | null, Url?: string | null } | null } | { __typename?: 'Comments' } | { __typename?: 'Content' } | { __typename?: 'DAMAsset' } | { __typename?: 'DAMImageAsset' } | { __typename?: 'DAMVideoAsset' } | { __typename?: 'LandingPage' } | { __typename?: 'SeoSettings' } | { __typename?: 'SocialMedia' } | null } | null } | null> | null, SeoSettings?: { __typename?: 'LandingPageBlockData', MetaTitle?: string | null, MetaDescription?: string | null, MetaKeywords?: string | null } | null };
 
 export const LandingPagesFragmentDoc = gql`
     fragment landingPages on LandingPage {
@@ -4556,6 +4563,11 @@ export const LandingPagesFragmentDoc = gql`
         ... on BlogPost {
           Title
           Tags
+          ContentLink {
+            Id
+            GuidValue
+            Url
+          }
           Excerpt
           FeatureImage
           Created
@@ -4574,6 +4586,46 @@ export const BlogPostsDocument = gql`
     query BlogPosts {
   BlogPost(limit: 100) {
     items {
+      Title
+      SubTitle
+      Tags
+      FeatureImage
+      Excerpt
+      Content
+      ContentLink {
+        Id
+        GuidValue
+        Url
+      }
+      SEOSettings {
+        MetaTitle
+        MetaDescription
+        MetaKeywords
+      }
+      Created
+    }
+    facets {
+      Created {
+        name
+        count
+      }
+      Tags {
+        name
+        count
+      }
+    }
+  }
+}
+    `;
+export const BlogPostsBySlugDocument = gql`
+    query BlogPostsBySlug($slug: String!) {
+  BlogPost(limit: 1, where: {Url: {endsWith: $slug}}) {
+    items {
+      ContentLink {
+        Id
+        GuidValue
+        Url
+      }
       Title
       SubTitle
       Tags
@@ -4620,6 +4672,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
   return {
     BlogPosts(variables?: BlogPostsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<BlogPostsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<BlogPostsQuery>(BlogPostsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'BlogPosts', 'query');
+    },
+    BlogPostsBySlug(variables: BlogPostsBySlugQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<BlogPostsBySlugQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<BlogPostsBySlugQuery>(BlogPostsBySlugDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'BlogPostsBySlug', 'query');
     },
     PersonalBlog(variables?: PersonalBlogQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<PersonalBlogQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<PersonalBlogQuery>(PersonalBlogDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'PersonalBlog', 'query');

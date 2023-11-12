@@ -40,6 +40,35 @@ export async function getBlogPosts() {
         method: "POST",
         body: JSON.stringify({
             query: parsedGQL.loc?.source.body,
+            operationName: "BlogPosts",
+        }),
+        next: {
+            revalidate: 3600,
+        }
+    })
+    
+    const json = await res.json()
+
+    const {error, content}: BlogPostsProps = {error: json.errors || null, content: json.data || null}
+
+    return {error, content}
+}
+
+export async function getBlogPostBySlug(slug: string) {
+    let headers = {}
+    let url = singleKeyUrl
+
+    const parsedGQL = gql`${BlogPosts}`
+    
+    const res = await fetch(url, {
+        headers,
+        method: "POST",
+        body: JSON.stringify({
+            query: parsedGQL.loc?.source.body,
+            variables: {
+                slug: slug
+            },
+            operationName: "BlogPostsBySlug"
         }),
         next: {
             revalidate: 3600,
