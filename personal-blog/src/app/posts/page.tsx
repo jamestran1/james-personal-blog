@@ -1,5 +1,5 @@
-import { notFound } from 'next/navigation';
-import { getBlogPosts } from '../../../handlers/handlers';
+import { notFound, useSearchParams } from 'next/navigation';
+import { Variables, getBlogPosts } from '../../../handlers/handlers';
 import Image from 'next/image';
 import { HashtagIcon, CalendarDaysIcon } from '@heroicons/react/24/outline';
 
@@ -7,8 +7,35 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ');
 }
 
-export default async function Posts() {
-    const { error, content } = await getBlogPosts();
+function ShortDate(date: string) {
+    return new Date(date).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+    });
+}
+
+export default async function Posts({
+    params,
+    searchParams,
+}: {
+    params: { slug: string };
+    searchParams?: {
+        tags?: string[];
+        created?: string;
+        operationName:
+            | 'ALlBlogPosts'
+            | 'BlogPostsBySlug'
+            | 'BlogPostByTag'
+            | 'BlogPostByDate';
+    };
+}) {
+    const { tags, created, operationName } = searchParams || {};
+    console.log(tags, created, operationName);
+    const { error, content } = await getBlogPosts(operationName, {
+        tags,
+        created,
+    });
     if (error) notFound();
     return (
         <div className="container flex flex-row bg-white py-24 sm:py-16">
@@ -21,7 +48,7 @@ export default async function Posts() {
                         Learn how to grow your business with our expert advice.
                     </p>
                     <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
-                        {content.BlogPost?.items?.map((post, key) => (
+                        {content.BlogPost?.items?.map((post: any, key: any) => (
                             <article
                                 key={key}
                                 className="relative isolate flex flex-col gap-8 lg:flex-row"
@@ -113,7 +140,11 @@ export default async function Posts() {
                                 (item, index) => (
                                     <li key={index}>
                                         <a
-                                            href="#"
+                                            href={
+                                                '/posts?created=' +
+                                                ShortDate(item?.name || '') +
+                                                '&operationName=BlogPostByDate'
+                                            }
                                             className={classNames(
                                                 false
                                                     ? 'bg-gray-50 text-indigo-600'
@@ -130,7 +161,7 @@ export default async function Posts() {
                                                 )}
                                                 aria-hidden="true"
                                             />
-                                            {item?.name}
+                                            {ShortDate(item?.name || '')}
                                             {item?.count ? (
                                                 <span
                                                     className="ml-auto w-9 min-w-max whitespace-nowrap rounded-full bg-white px-2.5 py-0.5 text-center text-xs font-medium leading-5 text-gray-600 ring-1 ring-inset ring-gray-200"
@@ -158,7 +189,11 @@ export default async function Posts() {
                                 (item, index) => (
                                     <li key={index}>
                                         <a
-                                            href="#"
+                                            href={
+                                                '/posts?tags=' +
+                                                item?.name +
+                                                '&operationName=BlogPostByTag'
+                                            }
                                             className={classNames(
                                                 false
                                                     ? 'bg-gray-50 text-indigo-600'

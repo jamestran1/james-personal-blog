@@ -1,12 +1,12 @@
 import exp from 'constants';
-import { BlogPostsQuery, ContentModelReferenceSearch, Maybe, PersonalBlogQuery } from '../generated/graphql';
+import { ALlBlogPostsQuery, ContentModelReferenceSearch, Maybe, PersonalBlogQuery } from '../generated/graphql';
 export type PersonalBlogProps = {
     error: any,
     content: PersonalBlogQuery,
 }
 export type BlogPostsProps = {
     error: any,
-    content: BlogPostsQuery,
+    content: ALlBlogPostsQuery,
 }
 
 export type FeaturePostProps = {

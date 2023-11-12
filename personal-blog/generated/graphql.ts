@@ -1,5 +1,4 @@
 import { GraphQLClient } from 'graphql-request';
-// @ts-ignore
 import { GraphQLClientRequestHeaders } from 'graphql-request/build/cjs/types';
 import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
@@ -4532,10 +4531,10 @@ export enum SynonymSlot {
   Two = 'TWO'
 }
 
-export type BlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
+export type ALlBlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type BlogPostsQuery = { __typename?: 'Query', BlogPost?: { __typename?: 'BlogPostOutput', items?: Array<{ __typename?: 'BlogPost', Title?: string | null, SubTitle?: string | null, Tags?: Array<string | null> | null, FeatureImage?: string | null, Excerpt?: string | null, Content?: string | null, Created?: any | null, ContentLink?: { __typename?: 'ContentModelReference', Id?: number | null, GuidValue?: string | null, Url?: string | null } | null, SEOSettings?: { __typename?: 'BlogPostBlockData', MetaTitle?: string | null, MetaDescription?: string | null, MetaKeywords?: string | null } | null } | null> | null, facets?: { __typename?: 'BlogPostFacet', Created?: Array<{ __typename?: 'DateFacet', name?: string | null, count?: number | null } | null> | null, Tags?: Array<{ __typename?: 'StringFacet', name?: string | null, count?: number | null } | null> | null } | null } | null };
+export type ALlBlogPostsQuery = { __typename?: 'Query', BlogPost?: { __typename?: 'BlogPostOutput', items?: Array<{ __typename?: 'BlogPost', Title?: string | null, SubTitle?: string | null, Tags?: Array<string | null> | null, FeatureImage?: string | null, Excerpt?: string | null, Content?: string | null, Created?: any | null, ContentLink?: { __typename?: 'ContentModelReference', Id?: number | null, GuidValue?: string | null, Url?: string | null } | null, SEOSettings?: { __typename?: 'BlogPostBlockData', MetaTitle?: string | null, MetaDescription?: string | null, MetaKeywords?: string | null } | null } | null> | null, facets?: { __typename?: 'BlogPostFacet', Created?: Array<{ __typename?: 'DateFacet', name?: string | null, count?: number | null } | null> | null, Tags?: Array<{ __typename?: 'StringFacet', name?: string | null, count?: number | null } | null> | null } | null } | null };
 
 export type BlogPostsBySlugQueryVariables = Exact<{
   slug: Scalars['String']['input'];
@@ -4544,12 +4543,28 @@ export type BlogPostsBySlugQueryVariables = Exact<{
 
 export type BlogPostsBySlugQuery = { __typename?: 'Query', BlogPost?: { __typename?: 'BlogPostOutput', items?: Array<{ __typename?: 'BlogPost', Title?: string | null, SubTitle?: string | null, Tags?: Array<string | null> | null, FeatureImage?: string | null, Excerpt?: string | null, Content?: string | null, Created?: any | null, ContentLink?: { __typename?: 'ContentModelReference', Id?: number | null, GuidValue?: string | null, Url?: string | null } | null, SEOSettings?: { __typename?: 'BlogPostBlockData', MetaTitle?: string | null, MetaDescription?: string | null, MetaKeywords?: string | null } | null } | null> | null, facets?: { __typename?: 'BlogPostFacet', Created?: Array<{ __typename?: 'DateFacet', name?: string | null, count?: number | null } | null> | null, Tags?: Array<{ __typename?: 'StringFacet', name?: string | null, count?: number | null } | null> | null } | null } | null };
 
+export type BlogPostByTagQueryVariables = Exact<{
+  tags: Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type BlogPostByTagQuery = { __typename?: 'Query', BlogPost?: { __typename?: 'BlogPostOutput', items?: Array<{ __typename?: 'BlogPost', Title?: string | null, SubTitle?: string | null, Tags?: Array<string | null> | null, FeatureImage?: string | null, Excerpt?: string | null, Content?: string | null, Created?: any | null, ContentLink?: { __typename?: 'ContentModelReference', Id?: number | null, GuidValue?: string | null, Url?: string | null } | null, SEOSettings?: { __typename?: 'BlogPostBlockData', MetaTitle?: string | null, MetaDescription?: string | null, MetaKeywords?: string | null } | null } | null> | null, facets?: { __typename?: 'BlogPostFacet', Created?: Array<{ __typename?: 'DateFacet', name?: string | null, count?: number | null } | null> | null, Tags?: Array<{ __typename?: 'StringFacet', name?: string | null, count?: number | null } | null> | null } | null } | null };
+
+export type BlogPostByDateQueryVariables = Exact<{
+  created: Scalars['Date']['input'];
+}>;
+
+
+export type BlogPostByDateQuery = { __typename?: 'Query', BlogPost?: { __typename?: 'BlogPostOutput', items?: Array<{ __typename?: 'BlogPost', Title?: string | null, SubTitle?: string | null, Tags?: Array<string | null> | null, FeatureImage?: string | null, Excerpt?: string | null, Content?: string | null, Created?: any | null, ContentLink?: { __typename?: 'ContentModelReference', Id?: number | null, GuidValue?: string | null, Url?: string | null } | null, SEOSettings?: { __typename?: 'BlogPostBlockData', MetaTitle?: string | null, MetaDescription?: string | null, MetaKeywords?: string | null } | null } | null> | null, facets?: { __typename?: 'BlogPostFacet', Created?: Array<{ __typename?: 'DateFacet', name?: string | null, count?: number | null } | null> | null, Tags?: Array<{ __typename?: 'StringFacet', name?: string | null, count?: number | null } | null> | null } | null } | null };
+
 export type PersonalBlogQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type PersonalBlogQuery = { __typename?: 'Query', Content?: { __typename?: 'ContentOutput', items?: Array<{ __typename: 'BlogPost' } | { __typename: 'Comments' } | { __typename: 'Content' } | { __typename: 'DAMAsset' } | { __typename: 'DAMImageAsset' } | { __typename: 'DAMVideoAsset' } | { __typename: 'LandingPage', Title?: string | null, SubTitle?: string | null, MainImage?: string | null, MainBody?: string | null, FeaturePosts?: Array<{ __typename?: 'ContentAreaItemModelSearch', ContentLink?: { __typename?: 'ContentModelReferenceSearch', Expanded?: { __typename?: 'BlogPost', Title?: string | null, Tags?: Array<string | null> | null, Excerpt?: string | null, FeatureImage?: string | null, Created?: any | null, ContentLink?: { __typename?: 'ContentModelReference', Id?: number | null, GuidValue?: string | null, Url?: string | null } | null } | { __typename?: 'Comments' } | { __typename?: 'Content' } | { __typename?: 'DAMAsset' } | { __typename?: 'DAMImageAsset' } | { __typename?: 'DAMVideoAsset' } | { __typename?: 'LandingPage' } | { __typename?: 'SeoSettings' } | { __typename?: 'SocialMedia' } | null } | null } | null> | null, SeoSettings?: { __typename?: 'LandingPageBlockData', MetaTitle?: string | null, MetaDescription?: string | null, MetaKeywords?: string | null } | null } | { __typename: 'SeoSettings' } | { __typename: 'SocialMedia' } | null> | null } | null };
 
 export type LandingPagesFragment = { __typename?: 'LandingPage', Title?: string | null, SubTitle?: string | null, MainImage?: string | null, MainBody?: string | null, FeaturePosts?: Array<{ __typename?: 'ContentAreaItemModelSearch', ContentLink?: { __typename?: 'ContentModelReferenceSearch', Expanded?: { __typename?: 'BlogPost', Title?: string | null, Tags?: Array<string | null> | null, Excerpt?: string | null, FeatureImage?: string | null, Created?: any | null, ContentLink?: { __typename?: 'ContentModelReference', Id?: number | null, GuidValue?: string | null, Url?: string | null } | null } | { __typename?: 'Comments' } | { __typename?: 'Content' } | { __typename?: 'DAMAsset' } | { __typename?: 'DAMImageAsset' } | { __typename?: 'DAMVideoAsset' } | { __typename?: 'LandingPage' } | { __typename?: 'SeoSettings' } | { __typename?: 'SocialMedia' } | null } | null } | null> | null, SeoSettings?: { __typename?: 'LandingPageBlockData', MetaTitle?: string | null, MetaDescription?: string | null, MetaKeywords?: string | null } | null };
+
+export type BlogPostFragment = { __typename?: 'BlogPost', Title?: string | null, SubTitle?: string | null, Tags?: Array<string | null> | null, FeatureImage?: string | null, Excerpt?: string | null, Content?: string | null, Created?: any | null, ContentLink?: { __typename?: 'ContentModelReference', Id?: number | null, GuidValue?: string | null, Url?: string | null } | null, SEOSettings?: { __typename?: 'BlogPostBlockData', MetaTitle?: string | null, MetaDescription?: string | null, MetaKeywords?: string | null } | null };
 
 export const LandingPagesFragmentDoc = gql`
     fragment landingPages on LandingPage {
@@ -4582,27 +4597,32 @@ export const LandingPagesFragmentDoc = gql`
   }
 }
     `;
-export const BlogPostsDocument = gql`
-    query BlogPosts {
+export const BlogPostFragmentDoc = gql`
+    fragment blogPost on BlogPost {
+  ContentLink {
+    Id
+    GuidValue
+    Url
+  }
+  Title
+  SubTitle
+  Tags
+  FeatureImage
+  Excerpt
+  Content
+  SEOSettings {
+    MetaTitle
+    MetaDescription
+    MetaKeywords
+  }
+  Created
+}
+    `;
+export const ALlBlogPostsDocument = gql`
+    query ALlBlogPosts {
   BlogPost(limit: 100) {
     items {
-      Title
-      SubTitle
-      Tags
-      FeatureImage
-      Excerpt
-      Content
-      ContentLink {
-        Id
-        GuidValue
-        Url
-      }
-      SEOSettings {
-        MetaTitle
-        MetaDescription
-        MetaKeywords
-      }
-      Created
+      ...blogPost
     }
     facets {
       Created {
@@ -4616,28 +4636,12 @@ export const BlogPostsDocument = gql`
     }
   }
 }
-    `;
+    ${BlogPostFragmentDoc}`;
 export const BlogPostsBySlugDocument = gql`
     query BlogPostsBySlug($slug: String!) {
   BlogPost(limit: 1, where: {Url: {endsWith: $slug}}) {
     items {
-      ContentLink {
-        Id
-        GuidValue
-        Url
-      }
-      Title
-      SubTitle
-      Tags
-      FeatureImage
-      Excerpt
-      Content
-      SEOSettings {
-        MetaTitle
-        MetaDescription
-        MetaKeywords
-      }
-      Created
+      ...blogPost
     }
     facets {
       Created {
@@ -4651,7 +4655,45 @@ export const BlogPostsBySlugDocument = gql`
     }
   }
 }
-    `;
+    ${BlogPostFragmentDoc}`;
+export const BlogPostByTagDocument = gql`
+    query BlogPostByTag($tags: [String]!) {
+  BlogPost(where: {Tags: {in: $tags}}) {
+    items {
+      ...blogPost
+    }
+    facets {
+      Created {
+        name
+        count
+      }
+      Tags {
+        name
+        count
+      }
+    }
+  }
+}
+    ${BlogPostFragmentDoc}`;
+export const BlogPostByDateDocument = gql`
+    query BlogPostByDate($created: Date!) {
+  BlogPost(where: {Created: {gte: $created}}) {
+    items {
+      ...blogPost
+    }
+    facets {
+      Created {
+        name
+        count
+      }
+      Tags {
+        name
+        count
+      }
+    }
+  }
+}
+    ${BlogPostFragmentDoc}`;
 export const PersonalBlogDocument = gql`
     query PersonalBlog {
   Content(locale: [en]) {
@@ -4670,11 +4712,17 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    BlogPosts(variables?: BlogPostsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<BlogPostsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<BlogPostsQuery>(BlogPostsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'BlogPosts', 'query');
+    ALlBlogPosts(variables?: ALlBlogPostsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<ALlBlogPostsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<ALlBlogPostsQuery>(ALlBlogPostsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'ALlBlogPosts', 'query');
     },
     BlogPostsBySlug(variables: BlogPostsBySlugQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<BlogPostsBySlugQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<BlogPostsBySlugQuery>(BlogPostsBySlugDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'BlogPostsBySlug', 'query');
+    },
+    BlogPostByTag(variables: BlogPostByTagQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<BlogPostByTagQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<BlogPostByTagQuery>(BlogPostByTagDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'BlogPostByTag', 'query');
+    },
+    BlogPostByDate(variables: BlogPostByDateQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<BlogPostByDateQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<BlogPostByDateQuery>(BlogPostByDateDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'BlogPostByDate', 'query');
     },
     PersonalBlog(variables?: PersonalBlogQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<PersonalBlogQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<PersonalBlogQuery>(PersonalBlogDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'PersonalBlog', 'query');
