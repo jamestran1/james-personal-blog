@@ -69,11 +69,11 @@ export default function FeaturePost({
                                             <p className="font-semibold text-gray-900">
                                                 <a href="#">
                                                     <span className="absolute inset-0"></span>
-                                                    Michael Foster
+                                                    James Tran
                                                 </a>
                                             </p>
                                             <p className="text-gray-600">
-                                                Co-Founder / CTO
+                                                Optimizely Software Engineer
                                             </p>
                                         </div>
                                     </div>
