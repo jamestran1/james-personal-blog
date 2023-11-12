@@ -7,6 +7,45 @@ query BlogPosts {
             FeatureImage
             Excerpt
             Content
+            ContentLink {
+                Id
+                GuidValue
+                Url
+            }
+            SEOSettings {
+                MetaTitle
+                MetaDescription
+                MetaKeywords
+            }
+            Created
+        }
+        facets {
+            Created {
+                name
+                count
+            }
+            Tags {
+                name
+                count
+            }
+        }
+    }
+}
+
+query BlogPostsBySlug($slug: String!) {
+    BlogPost(limit: 1, where: { Url: { endsWith: $slug } }) {
+        items {
+            ContentLink {
+                Id
+                GuidValue
+                Url
+            }
+            Title
+            SubTitle
+            Tags
+            FeatureImage
+            Excerpt
+            Content
             SEOSettings {
                 MetaTitle
                 MetaDescription

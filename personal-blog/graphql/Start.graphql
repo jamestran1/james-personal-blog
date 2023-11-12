@@ -18,6 +18,11 @@ fragment landingPages on LandingPage {
                 ... on BlogPost {
                     Title
                     Tags
+                    ContentLink {
+                        Id
+                        GuidValue
+                        Url
+                    }
                     Excerpt
                     FeatureImage
                     Created
