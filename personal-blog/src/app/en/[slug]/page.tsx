@@ -1,10 +1,12 @@
 import { notFound } from 'next/navigation';
-import { getBlogPostBySlug } from '../../../../handlers/handlers';
+import { getBlogPosts } from '../../../../handlers/handlers';
 import parse from 'html-react-parser';
 import Image from 'next/image';
 
 export default async function Page({ params }: { params: { slug: string } }) {
-    const { error, content } = await getBlogPostBySlug(params.slug + '/');
+    const { error, content } = await getBlogPosts('BlogPostsBySlug', {
+        slug: params.slug + '/',
+    });
     if (error) return notFound();
     // @ts-ignore
     const post = content.BlogPost?.items[0] || {};

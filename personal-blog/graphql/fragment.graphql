@@ -1,0 +1,19 @@
+fragment blogPost on BlogPost {
+    ContentLink {
+        Id
+        GuidValue
+        Url
+    }
+    Title
+    SubTitle
+    Tags
+    FeatureImage
+    Excerpt
+    Content
+    SEOSettings {
+        MetaTitle
+        MetaDescription
+        MetaKeywords
+    }
+    Created
+}

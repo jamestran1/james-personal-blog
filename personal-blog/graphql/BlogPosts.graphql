@@ -1,23 +1,9 @@
-query BlogPosts {
+#import "./fragment.graphql"
+
+query ALlBlogPosts {
     BlogPost(limit: 100) {
         items {
-            Title
-            SubTitle
-            Tags
-            FeatureImage
-            Excerpt
-            Content
-            ContentLink {
-                Id
-                GuidValue
-                Url
-            }
-            SEOSettings {
-                MetaTitle
-                MetaDescription
-                MetaKeywords
-            }
-            Created
+            ...blogPost
         }
         facets {
             Created {
@@ -35,23 +21,43 @@ query BlogPosts {
 query BlogPostsBySlug($slug: String!) {
     BlogPost(limit: 1, where: { Url: { endsWith: $slug } }) {
         items {
-            ContentLink {
-                Id
-                GuidValue
-                Url
+            ...blogPost
+        }
+        facets {
+            Created {
+                name
+                count
             }
-            Title
-            SubTitle
-            Tags
-            FeatureImage
-            Excerpt
-            Content
-            SEOSettings {
-                MetaTitle
-                MetaDescription
-                MetaKeywords
+            Tags {
+                name
+                count
             }
-            Created
+        }
+    }
+}
+
+query BlogPostByTag($tags: [String]!) {
+    BlogPost(where: { Tags: { in: $tags } }) {
+        items {
+            ...blogPost
+        }
+        facets {
+            Created {
+                name
+                count
+            }
+            Tags {
+                name
+                count
+            }
+        }
+    }
+}
+
+query BlogPostByDate($created: Date!) {
+    BlogPost(where: { Created: { gte: $created } }) {
+        items {
+            ...blogPost
         }
         facets {
             Created {
